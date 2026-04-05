@@ -57,7 +57,7 @@ export default function Hero() {
           <div className={styles.statDivider} />
           <div className={styles.stat}>
             <div className={styles.statNum}>
-              2<span className={styles.statAccent}>+</span>
+              4<span className={styles.statAccent}>+</span>
             </div>
             <div className={styles.statLabel}>Years Coding</div>
           </div>
