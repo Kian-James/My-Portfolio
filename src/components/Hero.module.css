@@ -12,7 +12,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: center;
+  align-items: flex-start;
   gap: 3rem;
 }
 
@@ -151,7 +151,7 @@
   position: absolute;
   top: 50%; left: 50%;
   width: 336px; height: 336px;
-  margin-top: -168px; margin-left: -168px;
+  margin-top: -228px; margin-left: -168px;
   border-radius: 50%;
   border: 2px dashed rgba(0,122,255,0.2);
   animation: spinRing 28s linear infinite;
@@ -165,7 +165,7 @@
   position: absolute;
   top: 50%; left: 50%;
   width: 300px; height: 300px;
-  margin-top: -150px; margin-left: -150px;
+  margin-top: -210px; margin-left: -150px;
   border-radius: 50%;
   border: 5px solid #1C1C1E;
   overflow: hidden;
@@ -244,7 +244,7 @@
 /* React — 12 o'clock: center-top, bubble centered above circle */
 .bubbleTop {
   left: 50%;
-  top: 20px;
+  top: 0px;
   transform: translateX(-50%);
   animation: floatY 3.0s ease-in-out infinite;
 }
