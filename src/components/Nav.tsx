@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import styles from './Nav.module.css';
 
 const NAV_LINKS = [
-  { href: '#about',          label: 'about' },
-  { href: '#skills',         label: 'skills' },
-  { href: '#projects',       label: 'projects' },
-  { href: '#certifications', label: 'certs' },
-  { href: '#contact',        label: 'contact' },
+  { href: '#about',          label: 'About' },
+  { href: '#skills',         label: 'Skills' },
+  { href: '#projects',       label: 'Projects' },
+  { href: '#certifications', label: 'Certs' },
+  { href: '#contact',        label: 'Contact' },
 ];
 
 export default function Nav() {

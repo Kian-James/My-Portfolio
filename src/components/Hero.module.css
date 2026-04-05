@@ -131,35 +131,38 @@
 }
 
 /* ══════════════════════════════════
-   RIGHT SIDE — Avatar + Bubbles
+   RIGHT — Avatar + Bubbles
    ══════════════════════════════════ */
+
+/* The wrap is the true center — all bubble positions are relative to it */
 .avatarWrap {
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: 300px;
+  height: 300px;
   flex-shrink: 0;
   animation: fadeUp 0.6s 0.2s ease both;
-  /* extra margin so floating bubbles don't clip */
-  margin: 80px 80px 80px 60px;
+  /* Large margin gives room for all 6 bubbles to spread out */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 130px;
+  margin-left: 100px;
 }
 
-/* Orbit ring */
+/* Spinning dashed orbit ring */
 .orbitRing {
   position: absolute;
-  inset: -16px;
+  inset: -18px;
   border-radius: 50%;
-  border: 2.5px solid rgba(0,122,255,0.18);
-  border-style: dashed;
+  border: 2px dashed rgba(0,122,255,0.2);
   animation: spinRing 28s linear infinite;
+  pointer-events: none;
 }
-@keyframes spinRing {
-  to { transform: rotate(360deg); }
-}
+@keyframes spinRing { to { transform: rotate(360deg); } }
 
-/* Circle */
+/* The circle */
 .avatarCircle {
-  width: 340px;
-  height: 340px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   border: 5px solid #1C1C1E;
   overflow: hidden;
@@ -169,171 +172,140 @@
   z-index: 2;
 }
 
+/* Image — shifted up so character sits higher in circle */
 .avatarImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  /* push image up so character overflows top of circle */
-  transform: scale(1.12) translateY(-4%);
+  object-position: center 20%;
+  transform: scale(1.15) translateY(-8%);
 }
 
-/* ── Chat bubble base ── */
+/* ── Shared bubble styles ── */
 .bubble {
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   background: white;
   border-radius: 14px;
-  padding: 8px 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.13), 0 1px 4px rgba(0,0,0,0.08);
+  padding: 9px 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.11), 0 1px 4px rgba(0,0,0,0.07);
   border: 1px solid rgba(0,0,0,0.06);
   z-index: 10;
   white-space: nowrap;
-  min-width: 130px;
 }
-
 .bubbleIcon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
+.bubbleText { display: flex; flex-direction: column; gap: 2px; }
+.bubbleName { font-size: 0.8rem; font-weight: 700; color: #1C1C1E; line-height: 1; }
+.bubbleSub  { font-size: 0.66rem; color: #8E8E93; font-weight: 500; }
 
-.bubbleText {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-.bubbleName {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #1C1C1E;
-  line-height: 1;
-}
-.bubbleSub {
-  font-size: 0.65rem;
-  color: #8E8E93;
-  font-weight: 500;
-}
-
-/* Tail shapes */
-.bubbleTail {
-  position: absolute;
-  width: 0; height: 0;
-}
+/* Tail arrows */
+.bubbleTail { position: absolute; width: 0; height: 0; }
 .tailBottom {
-  bottom: -9px; left: 50%; transform: translateX(-50%);
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid white;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.08));
+  bottom: -10px; left: 22px;
+  border-left: 9px solid transparent; border-right: 9px solid transparent;
+  border-top: 10px solid white;
 }
 .tailTop {
-  top: -9px; left: 50%; transform: translateX(-50%);
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 9px solid white;
-}
-.tailLeft {
-  left: -9px; top: 50%; transform: translateY(-50%);
-  border-top: 9px solid transparent;
-  border-bottom: 9px solid transparent;
-  border-right: 9px solid white;
+  top: -10px; left: 22px;
+  border-left: 9px solid transparent; border-right: 9px solid transparent;
+  border-bottom: 10px solid white;
 }
 .tailRight {
-  right: -9px; top: 50%; transform: translateY(-50%);
-  border-top: 9px solid transparent;
-  border-bottom: 9px solid transparent;
-  border-left: 9px solid white;
+  right: -10px; top: 16px;
+  border-top: 9px solid transparent; border-bottom: 9px solid transparent;
+  border-left: 10px solid white;
+}
+.tailLeft {
+  left: -10px; top: 16px;
+  border-top: 9px solid transparent; border-bottom: 9px solid transparent;
+  border-right: 10px solid white;
 }
 
-/* ── Bubble positions ── */
-/* React — top center */
+/* ══════════════════════════════════
+   BUBBLE POSITIONS — evenly spread
+   Clock positions around the circle:
+   12 o'clock = top-center
+   2 o'clock  = top-right
+   4 o'clock  = right
+   6 o'clock  = bottom-center
+   8 o'clock  = bottom-left
+   10 o'clock = top-left
+   ══════════════════════════════════ */
+
+/* React — 12 o'clock (top center) */
 .bubbleTop {
-  top: -70px;
+  top: -88px;
   left: 50%;
   transform: translateX(-50%);
-  animation: floatA 3s ease-in-out infinite;
+  animation: floatUD 3.0s ease-in-out infinite;
 }
 
-/* Flutter — top right */
+/* Flutter — 2 o'clock (top right) */
 .bubbleTopRight {
-  top: -30px;
-  right: -140px;
-  animation: floatB 3.4s ease-in-out infinite 0.3s;
+  top: -52px;
+  right: -168px;
+  animation: floatUD 3.4s ease-in-out infinite 0.5s;
 }
 
-/* Firebase — right middle */
+/* Firebase — 4 o'clock (right) */
 .bubbleRight {
   top: 50%;
-  right: -148px;
+  right: -176px;
   transform: translateY(-50%);
-  animation: floatC 2.9s ease-in-out infinite 0.6s;
+  animation: floatLR 2.9s ease-in-out infinite 0.2s;
 }
 
-/* MongoDB — bottom right */
+/* MongoDB — 6 o'clock (bottom right) */
 .bubbleBottomRight {
-  bottom: -30px;
-  right: -142px;
-  animation: floatA 3.2s ease-in-out infinite 0.9s;
+  bottom: -52px;
+  right: -168px;
+  animation: floatUD 3.3s ease-in-out infinite 0.8s;
 }
 
-/* Node.js — bottom center */
+/* Node.js — 6 o'clock (bottom center) */
 .bubbleBottom {
-  bottom: -70px;
+  bottom: -88px;
   left: 50%;
   transform: translateX(-50%);
-  animation: floatB 3.6s ease-in-out infinite 0.4s;
+  animation: floatUD 3.7s ease-in-out infinite 0.3s;
 }
 
-/* AWS — top left */
+/* AWS — 10 o'clock (top left) */
 .bubbleTopLeft {
-  top: -28px;
-  left: -140px;
-  animation: floatC 3.1s ease-in-out infinite 0.7s;
+  top: -52px;
+  left: -168px;
+  animation: floatUD 3.1s ease-in-out infinite 1s;
 }
 
-/* Float keyframes */
-@keyframes floatA {
-  0%, 100% { transform: translateX(-50%) translateY(0px); }
-  50%       { transform: translateX(-50%) translateY(-8px); }
+/* Float animations */
+@keyframes floatUD {
+  0%, 100% { transform: translateX(var(--tx, -50%)) translateY(0px); }
+  50%       { transform: translateX(var(--tx, -50%)) translateY(-9px); }
 }
-@keyframes floatB {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
-}
-@keyframes floatC {
+@keyframes floatLR {
   0%, 100% { transform: translateY(-50%) translateX(0px); }
-  50%       { transform: translateY(-50%) translateX(-5px); }
+  50%       { transform: translateY(-50%) translateX(-6px); }
 }
+
+/* Override transform for non-centered bubbles */
+.bubbleTopRight, .bubbleBottomRight, .bubbleTopLeft { --tx: 0px; }
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .avatarWrap { width: 280px; height: 280px; margin: 70px 70px 70px 50px; }
-  .avatarCircle { width: 280px; height: 280px; }
-  .bubble { min-width: 110px; padding: 6px 10px; }
-  .bubbleName { font-size: 0.72rem; }
-  .bubbleTopRight { right: -120px; }
-  .bubbleRight { right: -126px; }
-  .bubbleBottomRight { right: -122px; }
-  .bubbleTopLeft { left: -120px; }
+  .avatarWrap { margin-right: 110px; margin-left: 80px; }
 }
-
 @media (max-width: 860px) {
   .inner { grid-template-columns: 1fr; gap: 2rem; }
-  .avatarWrap { order: -1; margin: 60px auto; width: 240px; height: 240px; }
-  .avatarCircle { width: 240px; height: 240px; }
+  .avatarWrap { order: -1; margin: 80px auto; }
   .hero { padding: 5.5rem 1.5rem 4rem; }
   .stats { gap: 1.5rem; }
   .ctas { flex-direction: column; }
   .btn { justify-content: center; }
-  .bubbleTopRight { right: -110px; top: -20px; }
-  .bubbleRight { right: -120px; }
-  .bubbleBottomRight { right: -110px; bottom: -20px; }
-  .bubbleTopLeft { left: -110px; top: -20px; }
 }
