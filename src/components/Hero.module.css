@@ -8,16 +8,15 @@
   overflow: visible;
 }
 
-/* Two-column layout */
 .inner {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 4rem;
+  gap: 3rem;
 }
 
-/* ── Left column ── */
+/* ── Left ── */
 .content {}
 
 .tag {
@@ -56,7 +55,6 @@
   flex-direction: column;
   color: var(--text);
 }
-
 .nameDim { color: var(--muted); font-weight: 300; font-style: italic; }
 
 .title {
@@ -99,30 +97,19 @@
   border: none;
   transition: all var(--transition);
 }
-
 .btnPrimary {
   background: var(--accent);
   color: #fff;
   box-shadow: 0 4px 14px rgba(0, 122, 255, 0.3);
 }
-.btnPrimary:hover {
-  background: #0066d6;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 122, 255, 0.38);
-}
-
+.btnPrimary:hover { background: #0066d6; transform: translateY(-2px); }
 .btnGhost {
   background: var(--bg2);
   color: var(--text);
   border: 1px solid var(--border2);
   box-shadow: var(--shadow-sm);
 }
-.btnGhost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
+.btnGhost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
 .stats {
   display: flex;
@@ -133,9 +120,7 @@
   margin-bottom: 2rem;
   animation: fadeUp 0.5s 0.38s ease both;
 }
-
 .stat { text-align: left; }
-
 .statNum {
   font-family: var(--font-display);
   font-size: 2.2rem;
@@ -144,9 +129,7 @@
   letter-spacing: -0.04em;
   color: var(--text);
 }
-
 .statAccent { color: var(--accent); }
-
 .statLabel {
   font-size: 0.7rem;
   font-weight: 500;
@@ -154,12 +137,7 @@
   letter-spacing: 0.04em;
   margin-top: 0.3rem;
 }
-
-.statDivider {
-  width: 1px;
-  height: 36px;
-  background: var(--border2);
-}
+.statDivider { width: 1px; height: 36px; background: var(--border2); }
 
 .education {
   display: flex;
@@ -173,24 +151,10 @@
   box-shadow: var(--shadow-sm);
   animation: fadeUp 0.5s 0.44s ease both;
 }
-
 .eduIcon { font-size: 1.3rem; margin-top: 0.1rem; }
-
-.eduSchool {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 0.2rem;
-  color: var(--text);
-}
-
-.eduDegree {
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-bottom: 0.5rem;
-}
-
+.eduSchool { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--text); }
+.eduDegree { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
 .eduHonors { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-
 .honor {
   font-size: 0.68rem;
   font-weight: 600;
@@ -201,115 +165,53 @@
   border: 1px solid rgba(0, 122, 255, 0.2);
 }
 
-/* ── Right column: avatar ── */
+/* ── Right: scene ── */
 .avatarWrap {
-  position: relative;
-  width: 360px;
-  height: 360px;
   flex-shrink: 0;
   animation: fadeUp 0.6s 0.2s ease both;
 }
 
-/* Outer decorative ring */
-.avatarRing {
-  position: absolute;
-  inset: -12px;
-  border-radius: 50%;
-  border: 2px dashed rgba(0, 122, 255, 0.25);
-  animation: spin 20s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* The circle */
-.avatarCircle {
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #E8F4FF 0%, #D6EBFF 50%, #EEF7FF 100%);
-  border: 3px solid rgba(0, 122, 255, 0.18);
+.avatarScene {
   position: relative;
-  overflow: visible;  /* key — lets figure overflow */
-  box-shadow:
-    0 20px 60px rgba(0, 122, 255, 0.12),
-    0 4px 20px rgba(0, 0, 0, 0.06);
+  width: 420px;
+  height: 480px;
 }
 
-/* Clip the BOTTOM of the circle only, let top overflow */
-.avatarCircle::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 3px rgba(0, 122, 255, 0.18);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Figure container — positioned so head pokes above circle */
-.avatarFigure {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  z-index: 3;
-}
-
-.coderSvg {
+.sceneSvg {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  overflow: visible;
 }
 
-/* Floating badge animations */
-.avatarFigure svg g:nth-child(1) {
-  animation: floatA 3s ease-in-out infinite;
-}
-.avatarFigure svg g:nth-child(2) {
-  animation: floatB 3.5s ease-in-out infinite;
-}
-.avatarFigure svg g:nth-child(3) {
-  animation: floatC 4s ease-in-out infinite;
-}
+/* Badge float animations */
+:global(.badgeCSS) { animation: floatA 3.2s ease-in-out infinite; }
+:global(.badgeCode) { animation: floatB 2.8s ease-in-out infinite; }
+:global(.badgeHTML) { animation: floatC 3.6s ease-in-out infinite; }
+:global(.badgeReact) { animation: floatA 3s ease-in-out infinite 0.5s; }
 
 @keyframes floatA {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-9px) rotate(1deg); }
 }
 @keyframes floatB {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  0%, 100% { transform: translateY(0px) rotate(2deg); }
+  50% { transform: translateY(-11px) rotate(-1deg); }
 }
 @keyframes floatC {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-7px) rotate(2deg); }
 }
 
 /* ── Responsive ── */
-@media (max-width: 1024px) {
-  .avatarWrap { width: 300px; height: 300px; }
-  .avatarCircle { width: 300px; height: 300px; }
-  .avatarFigure { width: 230px; }
-  .inner { gap: 2.5rem; }
+@media (max-width: 1100px) {
+  .avatarScene { width: 340px; height: 390px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
+  .inner { grid-template-columns: 1fr; gap: 2rem; }
+  .avatarWrap { order: -1; margin: 0 auto; }
+  .avatarScene { width: 300px; height: 340px; }
   .hero { padding: 5.5rem 1.5rem 4rem; }
-  .inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  .avatarWrap {
-    width: 260px;
-    height: 260px;
-    margin: 0 auto;
-    order: -1; /* avatar on top on mobile */
-  }
-  .avatarCircle { width: 260px; height: 260px; }
-  .avatarFigure { width: 200px; }
   .stats { gap: 1.5rem; }
   .ctas { flex-direction: column; }
   .btn { justify-content: center; }
