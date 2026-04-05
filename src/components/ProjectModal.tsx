@@ -20,6 +20,8 @@ export default function ProjectModal({ project, onClose }: Props) {
     };
   }, [onClose]);
 
+  const images = project.images ?? [];
+
   return (
     <div
       className={styles.overlay}
@@ -29,6 +31,15 @@ export default function ProjectModal({ project, onClose }: Props) {
       aria-label={project.title}
     >
       <div className={styles.modal}>
+        {/* Screenshot gallery */}
+        {images.length > 0 && (
+          <div className={styles.gallery}>
+            {images.map((src, i) => (
+              <img key={i} src={src} alt={`${project.title} screenshot ${i + 1}`} />
+            ))}
+          </div>
+        )}
+
         {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>

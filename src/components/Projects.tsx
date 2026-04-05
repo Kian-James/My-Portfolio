@@ -17,16 +17,26 @@ function ProjectCard({
   onClick: () => void;
   index: number;
 }) {
+  const previewImgs = project.images?.slice(0, 3) ?? [];
+
   return (
     <article
       className={styles.card}
       onClick={onClick}
-      style={{ animationDelay: `${index * 0.1}s` }}
+      style={{ animationDelay: `${index * 0.08}s` }}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => e.key === 'Enter' && onClick()}
       aria-label={`View ${project.title} details`}
     >
+      {previewImgs.length > 0 && (
+        <div className={styles.cardImages}>
+          {previewImgs.map((src, i) => (
+            <img key={i} src={src} alt={`${project.title} screenshot ${i + 1}`} />
+          ))}
+        </div>
+      )}
+
       <div className={styles.cardTop}>
         <div className={styles.cardTags}>
           <span className={`${styles.tag} ${styles.tagAccent}`}>{project.type}</span>

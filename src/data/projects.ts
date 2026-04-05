@@ -1,28 +1,5 @@
 import type { Project } from '@/types';
 
-// ================================================================
-// ✏️  YOUR PROJECTS — edit like blog posts!
-//
-// To add a new project:
-//   1. Copy one of the blocks below
-//   2. Paste it at the end (before the closing bracket)
-//   3. Fill in your details
-//   4. Save — the site updates automatically
-//
-// Fields:
-//   id         → unique number, increment for each new project
-//   title      → project name shown on the card
-//   period     → "MMM YYYY – MMM YYYY" or "MMM YYYY – Present"
-//   type       → short tech label shown as accent badge (e.g. "MERN", "Flutter")
-//   category   → "Web" | "Mobile" | "API"  — used by the filter tabs
-//   summary    → one paragraph shown on the card AND in the modal overview
-//   highlights → bullet points inside the modal (what you built / achieved)
-//   stack      → tech tags shown in the modal
-//   status     → "Completed" | "In Progress"
-//   githubUrl  → optional — shows a GitHub button in modal
-//   liveUrl    → optional — shows a Live Demo button in modal
-// ================================================================
-
 export const PROJECTS: Project[] = [
   {
     id: 1,
@@ -40,7 +17,6 @@ export const PROJECTS: Project[] = [
     ],
     stack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT Auth'],
     status: 'Completed',
-    // githubUrl: 'https://github.com/Kian-James/evalanne-bms',
   },
   {
     id: 2,
@@ -58,25 +34,36 @@ export const PROJECTS: Project[] = [
     ],
     stack: ['Flutter', 'Firebase', 'Firestore', 'Firebase Auth'],
     status: 'Completed',
-    // githubUrl: 'https://github.com/Kian-James/stayfinder',
   },
-
-  // ✏️  PASTE NEW PROJECTS BELOW THIS LINE:
-  // {
-  //   id: 3,
-  //   title: 'My New Project',
-  //   period: 'Jan 2026 – Present',
-  //   type: 'MERN',
-  //   category: 'Web',
-  //   summary: 'Short description shown on the project card.',
-  //   highlights: [
-  //     'Key thing you built',
-  //     'Another achievement',
-  //     'A third point',
-  //   ],
-  //   stack: ['React', 'Node.js', 'MongoDB'],
-  //   status: 'In Progress',
-  //   githubUrl: 'https://github.com/Kian-James/my-new-project',
-  //   liveUrl: 'https://my-project.vercel.app',
-  // },
+  {
+    id: 3,
+    title: "HAUPokemon Monster's App",
+    period: 'Mar 2026 – Apr 2026',
+    type: 'AWS + Flutter',
+    category: 'Mobile',
+    summary:
+      'Location-based Pokémon GO-inspired mobile app built on real AWS cloud infrastructure. Players register, explore via GPS, detect nearby monsters, and compete on a live leaderboard — all powered by a secure multi-region AWS backend.',
+    highlights: [
+      'Deployed PHP REST API on Amazon EC2 (eu-west-3 Paris) behind Tailscale VPN — zero public database exposure',
+      'Built cross-region VPC Peering between Paris web server and N. Virginia MariaDB over AWS private network',
+      'Implemented IAM Role-based EC2 automation — admins start/stop instances directly from the mobile app',
+      'GPS monster detection with Pokémon-style alerts: red screen flash, haptic vibration, torch activation, and alarm sound',
+      'Interactive OpenStreetMap showing all monster spawn radius zones with real-time player GPS location',
+      'JWT-authenticated REST API with 18 endpoints: players, monsters, catches, leaderboard, and EC2 control',
+      'Live top 10 leaderboard with podium display; EC2 instance status auto-refreshes every 15 seconds',
+    ],
+    stack: ['Flutter', 'PHP 8', 'MariaDB', 'AWS EC2', 'AWS VPC', 'AWS IAM', 'Tailscale VPN', 'JWT', 'OpenStreetMap'],
+    status: 'Completed',
+    images: [
+      '/screenshots/haupokemon-login.png',
+      '/screenshots/haupokemon-dashboard.png',
+      '/screenshots/haupokemon-monsters.png',
+      '/screenshots/haupokemon-catch.png',
+      '/screenshots/haupokemon-caught.png',
+      '/screenshots/haupokemon-leaderboard.png',
+      '/screenshots/haupokemon-map.png',
+      '/screenshots/haupokemon-ec2-main.png',
+      '/screenshots/haupokemon-ec2-2.png',
+    ],
+  },
 ];

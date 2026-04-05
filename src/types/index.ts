@@ -10,6 +10,7 @@ export interface Project {
   status: 'Completed' | 'In Progress';
   githubUrl?: string;
   liveUrl?: string;
+  images?: string[];
 }
 
 export interface Skill {
