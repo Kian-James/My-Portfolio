@@ -17,8 +17,6 @@
 }
 
 /* ── Left ── */
-.content {}
-
 .tag {
   display: inline-flex;
   align-items: center;
@@ -34,7 +32,6 @@
   border: 1px solid rgba(52, 199, 89, 0.25);
   animation: fadeUp 0.5s 0.05s ease both;
 }
-
 .pulse {
   width: 7px; height: 7px;
   background: var(--accent2);
@@ -42,7 +39,6 @@
   display: block;
   animation: pulse 2s infinite;
 }
-
 .name {
   font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 6rem);
@@ -56,7 +52,6 @@
   color: var(--text);
 }
 .nameDim { color: var(--muted); font-weight: 300; font-style: italic; }
-
 .title {
   font-size: 0.82rem;
   font-weight: 600;
@@ -66,7 +61,6 @@
   margin-bottom: 1.5rem;
   animation: fadeUp 0.5s 0.18s ease both;
 }
-
 .summary {
   font-size: 1.02rem;
   color: var(--text2);
@@ -75,7 +69,6 @@
   margin-bottom: 2.5rem;
   animation: fadeUp 0.5s 0.24s ease both;
 }
-
 .ctas {
   display: flex;
   gap: 0.65rem;
@@ -83,7 +76,6 @@
   margin-bottom: 4rem;
   animation: fadeUp 0.5s 0.3s ease both;
 }
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -97,20 +89,10 @@
   border: none;
   transition: all var(--transition);
 }
-.btnPrimary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(0, 122, 255, 0.3);
-}
+.btnPrimary { background: var(--accent); color: #fff; box-shadow: 0 4px 14px rgba(0,122,255,0.3); }
 .btnPrimary:hover { background: #0066d6; transform: translateY(-2px); }
-.btnGhost {
-  background: var(--bg2);
-  color: var(--text);
-  border: 1px solid var(--border2);
-  box-shadow: var(--shadow-sm);
-}
+.btnGhost { background: var(--bg2); color: var(--text); border: 1px solid var(--border2); box-shadow: var(--shadow-sm); }
 .btnGhost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
 .stats {
   display: flex;
   align-items: center;
@@ -121,24 +103,10 @@
   animation: fadeUp 0.5s 0.38s ease both;
 }
 .stat { text-align: left; }
-.statNum {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--text);
-}
+.statNum { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; line-height: 1; letter-spacing: -0.04em; color: var(--text); }
 .statAccent { color: var(--accent); }
-.statLabel {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-  margin-top: 0.3rem;
-}
+.statLabel { font-size: 0.7rem; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; margin-top: 0.3rem; }
 .statDivider { width: 1px; height: 36px; background: var(--border2); }
-
 .education {
   display: flex;
   align-items: flex-start;
@@ -156,63 +124,216 @@
 .eduDegree { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
 .eduHonors { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 .honor {
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 0.15rem 0.55rem;
-  border-radius: 100px;
-  background: rgba(0, 122, 255, 0.08);
-  color: var(--accent);
-  border: 1px solid rgba(0, 122, 255, 0.2);
+  font-size: 0.68rem; font-weight: 600;
+  padding: 0.15rem 0.55rem; border-radius: 100px;
+  background: rgba(0,122,255,0.08); color: var(--accent);
+  border: 1px solid rgba(0,122,255,0.2);
 }
 
-/* ── Right: scene ── */
+/* ══════════════════════════════════
+   RIGHT SIDE — Avatar + Bubbles
+   ══════════════════════════════════ */
 .avatarWrap {
+  position: relative;
+  width: 340px;
+  height: 340px;
   flex-shrink: 0;
   animation: fadeUp 0.6s 0.2s ease both;
+  /* extra margin so floating bubbles don't clip */
+  margin: 80px 80px 80px 60px;
 }
 
-.avatarScene {
+/* Orbit ring */
+.orbitRing {
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(0,122,255,0.18);
+  border-style: dashed;
+  animation: spinRing 28s linear infinite;
+}
+@keyframes spinRing {
+  to { transform: rotate(360deg); }
+}
+
+/* Circle */
+.avatarCircle {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 5px solid #1C1C1E;
+  overflow: hidden;
+  background: #f0f4ff;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.14), 0 4px 16px rgba(0,122,255,0.1);
   position: relative;
-  width: 420px;
-  height: 480px;
+  z-index: 2;
 }
 
-.sceneSvg {
+.avatarImg {
   width: 100%;
   height: 100%;
-  overflow: visible;
+  object-fit: cover;
+  object-position: center top;
+  /* push image up so character overflows top of circle */
+  transform: scale(1.12) translateY(-4%);
 }
 
-/* Badge float animations */
-:global(.badgeCSS) { animation: floatA 3.2s ease-in-out infinite; }
-:global(.badgeCode) { animation: floatB 2.8s ease-in-out infinite; }
-:global(.badgeHTML) { animation: floatC 3.6s ease-in-out infinite; }
-:global(.badgeReact) { animation: floatA 3s ease-in-out infinite 0.5s; }
+/* ── Chat bubble base ── */
+.bubble {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border-radius: 14px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.13), 0 1px 4px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.06);
+  z-index: 10;
+  white-space: nowrap;
+  min-width: 130px;
+}
 
+.bubbleIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bubbleText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.bubbleName {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1C1C1E;
+  line-height: 1;
+}
+.bubbleSub {
+  font-size: 0.65rem;
+  color: #8E8E93;
+  font-weight: 500;
+}
+
+/* Tail shapes */
+.bubbleTail {
+  position: absolute;
+  width: 0; height: 0;
+}
+.tailBottom {
+  bottom: -9px; left: 50%; transform: translateX(-50%);
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid white;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.08));
+}
+.tailTop {
+  top: -9px; left: 50%; transform: translateX(-50%);
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid white;
+}
+.tailLeft {
+  left: -9px; top: 50%; transform: translateY(-50%);
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 9px solid white;
+}
+.tailRight {
+  right: -9px; top: 50%; transform: translateY(-50%);
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 9px solid white;
+}
+
+/* ── Bubble positions ── */
+/* React — top center */
+.bubbleTop {
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: floatA 3s ease-in-out infinite;
+}
+
+/* Flutter — top right */
+.bubbleTopRight {
+  top: -30px;
+  right: -140px;
+  animation: floatB 3.4s ease-in-out infinite 0.3s;
+}
+
+/* Firebase — right middle */
+.bubbleRight {
+  top: 50%;
+  right: -148px;
+  transform: translateY(-50%);
+  animation: floatC 2.9s ease-in-out infinite 0.6s;
+}
+
+/* MongoDB — bottom right */
+.bubbleBottomRight {
+  bottom: -30px;
+  right: -142px;
+  animation: floatA 3.2s ease-in-out infinite 0.9s;
+}
+
+/* Node.js — bottom center */
+.bubbleBottom {
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: floatB 3.6s ease-in-out infinite 0.4s;
+}
+
+/* AWS — top left */
+.bubbleTopLeft {
+  top: -28px;
+  left: -140px;
+  animation: floatC 3.1s ease-in-out infinite 0.7s;
+}
+
+/* Float keyframes */
 @keyframes floatA {
-  0%, 100% { transform: translateY(0px) rotate(-2deg); }
-  50% { transform: translateY(-9px) rotate(1deg); }
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
 }
 @keyframes floatB {
-  0%, 100% { transform: translateY(0px) rotate(2deg); }
-  50% { transform: translateY(-11px) rotate(-1deg); }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
 }
 @keyframes floatC {
-  0%, 100% { transform: translateY(0px) rotate(-1deg); }
-  50% { transform: translateY(-7px) rotate(2deg); }
+  0%, 100% { transform: translateY(-50%) translateX(0px); }
+  50%       { transform: translateY(-50%) translateX(-5px); }
 }
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .avatarScene { width: 340px; height: 390px; }
+  .avatarWrap { width: 280px; height: 280px; margin: 70px 70px 70px 50px; }
+  .avatarCircle { width: 280px; height: 280px; }
+  .bubble { min-width: 110px; padding: 6px 10px; }
+  .bubbleName { font-size: 0.72rem; }
+  .bubbleTopRight { right: -120px; }
+  .bubbleRight { right: -126px; }
+  .bubbleBottomRight { right: -122px; }
+  .bubbleTopLeft { left: -120px; }
 }
 
 @media (max-width: 860px) {
   .inner { grid-template-columns: 1fr; gap: 2rem; }
-  .avatarWrap { order: -1; margin: 0 auto; }
-  .avatarScene { width: 300px; height: 340px; }
+  .avatarWrap { order: -1; margin: 60px auto; width: 240px; height: 240px; }
+  .avatarCircle { width: 240px; height: 240px; }
   .hero { padding: 5.5rem 1.5rem 4rem; }
   .stats { gap: 1.5rem; }
   .ctas { flex-direction: column; }
   .btn { justify-content: center; }
+  .bubbleTopRight { right: -110px; top: -20px; }
+  .bubbleRight { right: -120px; }
+  .bubbleBottomRight { right: -110px; bottom: -20px; }
+  .bubbleTopLeft { left: -110px; top: -20px; }
 }
