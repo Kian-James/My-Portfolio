@@ -22,8 +22,7 @@
   padding: 0.3rem 0.8rem;
   border-radius: 100px;
   border: 1px solid rgba(52, 199, 89, 0.25);
-  opacity: 0;
-  animation: fadeUp 0.6s 0.1s ease forwards;
+  animation: fadeUp 0.5s 0.05s ease both;
 }
 
 .pulse {
@@ -41,8 +40,7 @@
   line-height: 0.95;
   letter-spacing: -0.03em;
   margin-bottom: 0.85rem;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.2s ease forwards;
+  animation: fadeUp 0.5s 0.12s ease both;
   display: flex;
   flex-direction: column;
   color: var(--text);
@@ -57,8 +55,7 @@
   letter-spacing: 0.07em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.28s ease forwards;
+  animation: fadeUp 0.5s 0.18s ease both;
 }
 
 .summary {
@@ -67,8 +64,7 @@
   max-width: 520px;
   line-height: 1.75;
   margin-bottom: 2.5rem;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.35s ease forwards;
+  animation: fadeUp 0.5s 0.24s ease both;
 }
 
 .ctas {
@@ -76,8 +72,7 @@
   gap: 0.65rem;
   flex-wrap: wrap;
   margin-bottom: 4rem;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.42s ease forwards;
+  animation: fadeUp 0.5s 0.3s ease both;
 }
 
 .btn {
@@ -99,7 +94,6 @@
   color: #fff;
   box-shadow: 0 4px 14px rgba(0, 122, 255, 0.3);
 }
-
 .btnPrimary:hover {
   background: #0066d6;
   transform: translateY(-2px);
@@ -112,7 +106,6 @@
   border: 1px solid var(--border2);
   box-shadow: var(--shadow-sm);
 }
-
 .btnGhost:hover {
   border-color: var(--accent);
   color: var(--accent);
@@ -127,8 +120,7 @@
   padding: 2rem 0;
   border-top: 1px solid var(--border);
   margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.5s ease forwards;
+  animation: fadeUp 0.5s 0.38s ease both;
 }
 
 .stat { text-align: left; }
@@ -168,8 +160,7 @@
   border-radius: var(--radius);
   max-width: 500px;
   box-shadow: var(--shadow-sm);
-  opacity: 0;
-  animation: fadeUp 0.6s 0.58s ease forwards;
+  animation: fadeUp 0.5s 0.44s ease both;
 }
 
 .eduIcon { font-size: 1.3rem; margin-top: 0.1rem; }

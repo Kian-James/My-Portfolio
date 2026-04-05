@@ -2,12 +2,7 @@
   padding: 5rem 3rem;
   max-width: 1200px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
-.visible { opacity: 1; transform: translateY(0); }
 
 .label {
   font-size: 0.72rem;
@@ -52,11 +47,6 @@
   padding: 1.3rem 1.4rem;
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-  opacity: 0;
-}
-
-.visible .card {
-  animation: fadeUp 0.5s ease forwards;
 }
 
 .card:hover {
