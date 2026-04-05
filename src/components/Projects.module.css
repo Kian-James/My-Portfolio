@@ -1,0 +1,224 @@
+.section {
+  padding: 6rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.visible { opacity: 1; transform: translateY(0); }
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.dim { color: var(--muted); }
+
+/* Filter tabs */
+.filters {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.filterBtn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filterActive {
+  background: var(--accent);
+  color: #0a0a0f;
+  border-color: var(--accent);
+}
+
+.filterBtn:hover:not(.filterActive) {
+  border-color: rgba(126, 255, 196, 0.4);
+  color: var(--accent);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Card */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.visible .card {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.card:hover {
+  border-color: rgba(126, 255, 196, 0.28);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(126, 255, 196, 0.3);
+}
+
+.cardTop {
+  padding: 1.25rem 1.25rem 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cardTags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  background: var(--bg3);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  letter-spacing: 0.05em;
+}
+
+.tagAccent {
+  background: rgba(126, 255, 196, 0.08);
+  color: var(--accent);
+  border-color: rgba(126, 255, 196, 0.2);
+}
+
+.arrow {
+  font-size: 1.1rem;
+  color: var(--muted);
+  transition: color var(--transition), transform var(--transition);
+  flex-shrink: 0;
+}
+
+.card:hover .arrow {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+
+.cardBody {
+  padding: 0.9rem 1.25rem 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+
+.cardPeriod {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.7rem;
+}
+
+.cardSummary {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.cardStack {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.stackTag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 3px;
+  background: var(--bg3);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.status {
+  font-size: 0.75rem;
+}
+
+.statusGreen { color: var(--accent); }
+.statusBlue { color: var(--accent2); }
+
+.empty {
+  padding: 4rem;
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 1.5rem; }
+  .header { flex-direction: column; align-items: flex-start; }
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,114 @@
+.section {
+  padding: 6rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.visible { opacity: 1; transform: translateY(0); }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.dim { color: var(--muted); }
+
+.intro {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color var(--transition);
+  opacity: 0;
+}
+
+.visible .card {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.card:hover { border-color: rgba(126, 255, 196, 0.2); }
+
+.cardLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.cardValue {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: color var(--transition);
+  word-break: break-all;
+  display: block;
+}
+
+.cardValue:hover { color: var(--accent); }
+.cardValueStatic { cursor: default; }
+.cardValueStatic:hover { color: var(--text); }
+
+.cta {
+  margin-top: 1.5rem;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  background: var(--accent);
+  color: #0a0a0f;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.ctaBtn:hover {
+  background: #5df0a8;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 1.5rem; }
+  .grid { grid-template-columns: 1fr; }
+}

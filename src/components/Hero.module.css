@@ -1,0 +1,212 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 3rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.inner { width: 100%; }
+
+/* Tag */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.1s ease forwards;
+}
+
+.pulse {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: block;
+  animation: pulse 2s infinite;
+}
+
+/* Name */
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  margin-bottom: 0.75rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.2s ease forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.nameDim {
+  color: var(--muted);
+}
+
+/* Title */
+.title {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.28s ease forwards;
+}
+
+/* Summary */
+.summary {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 540px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.35s ease forwards;
+}
+
+/* CTAs */
+.ctas {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.42s ease forwards;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+}
+
+.btnPrimary {
+  background: var(--accent);
+  color: #0a0a0f;
+}
+
+.btnPrimary:hover {
+  background: #5df0a8;
+  transform: translateY(-2px);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btnGhost:hover {
+  border-color: rgba(126, 255, 196, 0.4);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.5s ease forwards;
+}
+
+.stat { text-align: left; }
+
+.statNum {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.statAccent { color: var(--accent); }
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+.statDivider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+}
+
+/* Education */
+.education {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-width: 480px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.58s ease forwards;
+}
+
+.eduIcon { font-size: 1.3rem; margin-top: 0.1rem; }
+
+.eduSchool {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.eduDegree {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  margin-bottom: 0.5rem;
+}
+
+.eduHonors { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+.honor {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(126, 255, 196, 0.08);
+  color: var(--accent);
+  border: 1px solid rgba(126, 255, 196, 0.2);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 5rem 1.5rem 4rem; }
+  .stats { gap: 1.5rem; }
+  .ctas { flex-direction: column; }
+  .btn { justify-content: center; }
+}
