@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     type: 'MERN',
     category: 'Web',
     summary:
-      'Full-stack business management platform built to streamline Evalanne Marketing's daily operations — including sales tracking, expense management, employee management, and performance monitoring — through distinct Admin and Employee dashboards.',
+      "Full-stack business management platform built to streamline Evalanne Marketing's daily operations — including sales tracking, expense management, employee management, and performance monitoring — through distinct Admin and Employee dashboards.",
     highlights: [
       'Built dual-dashboard system: Employee dashboard for creating and tracking customer transactions (pending and completed), Admin dashboard for full business oversight',
       'Admin business overview with charts and statistics visualizing overall performance, revenue trends, and operational metrics',
