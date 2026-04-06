@@ -262,7 +262,7 @@
 
 /* Firebase — 4 o'clock */
 .bubbleBottomRight {
-  top: 340px;
+  bottom: 80px;
   right: 0px;
   animation: floatY 2.9s ease-in-out infinite 0.6s;
 }
