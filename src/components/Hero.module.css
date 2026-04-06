@@ -262,12 +262,12 @@
   animation: floatY 3.4s ease-in-out infinite 0.3s;
 }
 
-/* Firebase — 3 o'clock */
+/* Firebase — 4 o'clock */
 .bubbleRight {
-  top: 50%;
+  bottom: 140px;
   right: 20px;
-  transform: translateY(-50%);
-  animation: floatX 2.9s ease-in-out infinite 0.6s;
+  transform: none;
+  animation: floatY 3.0s ease-in-out infinite 0.6s;
 }
 
 /* MongoDB — 6 o'clock */
