@@ -265,9 +265,9 @@
 /* Firebase — 4 o'clock */
 .bubbleBottomRight {
   top: 50%;
-  left: 50%;
-  transform: translate(140px, 80px);
-  animation: floatY 3s ease-in-out infinite;
+  right: 20px;
+  transform: translateY(-50%);
+  animation: floatX 2.9s ease-in-out infinite 0.6s;
 }
 
 /* MongoDB — 6 o'clock */
@@ -287,8 +287,8 @@
 
 /* Float animations */
 @keyframes floatY {
-  0%, 100% { transform: translate(140px, 80px); }
-  50%      { transform: translate(140px, 70px); }
+  0%, 100% { transform: translateX(var(--tx, -50%)) translateY(0px); }
+  50%       { transform: translateX(var(--tx, -50%)) translateY(-9px); }
 }
 @keyframes floatX {
   0%, 100% { transform: translateY(-50%) translateX(0px); }
