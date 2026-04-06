@@ -271,18 +271,18 @@
   animation: floatX 2.9s ease-in-out infinite 0.6s;
 }
 
-/* MongoDB — 5 o'clock: lower-right */
-.bubbleBottomRight {
-  right: 16px;
-  bottom: 80px;
-  animation: floatY 3.3s ease-in-out infinite 1.1s;
-}
-
-/* Node.js — 6 o'clock: center-bottom */
+/* MongoDB — bottom center (opposite React at top) */
 .bubbleBottom {
   left: 50%;
   bottom: 20px;
   transform: translateX(-50%);
+  animation: floatY 3.3s ease-in-out infinite 0.8s;
+}
+
+/* Node.js — bottom left (opposite Flutter at top right) */
+.bubbleBottomLeft {
+  left: 16px;
+  bottom: 80px;
   animation: floatY 3.7s ease-in-out infinite 0.4s;
 }
 
@@ -295,7 +295,7 @@
   0%, 100% { transform: translateY(-50%) translateX(0px); }
   50%       { transform: translateY(-50%) translateX(-6px); }
 }
-/* non-centered bubbles don't use translateX */
+/* non-centered bubbles: no translateX */
 .bubbleTopLeft, .bubbleTopRight, .bubbleBottomLeft { --tx: 0px; }
 
 /* ── Responsive ── */
