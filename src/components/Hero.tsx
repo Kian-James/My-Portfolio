@@ -127,8 +127,8 @@ export default function Hero() {
             <div className={`${styles.bubbleTail} ${styles.tailLeft}`} />
           </div>
 
-          {/* MongoDB — bottom right */}
-          <div className={`${styles.bubble} ${styles.bubbleBottomRight}`}>
+          {/* MongoDB — bottom center (opposite React) */}
+          <div className={`${styles.bubble} ${styles.bubbleBottom}`}>
             <span className={styles.bubbleIcon} style={{background:'#001E2B'}}>
               <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
                 <path d="M20 4C20 4 12 14 12 22C12 30 20 36 20 36C20 36 28 30 28 22C28 14 20 4 20 4Z" fill="#00ED64"/>
@@ -142,8 +142,8 @@ export default function Hero() {
             <div className={`${styles.bubbleTail} ${styles.tailTop}`} />
           </div>
 
-          {/* Node.js — bottom */}
-          <div className={`${styles.bubble} ${styles.bubbleBottom}`}>
+          {/* Node.js — bottom left (opposite Flutter) */}
+          <div className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>
             <span className={styles.bubbleIcon} style={{background:'#1A1A1A'}}>
               <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
                 <path d="M20 4L34 12V28L20 36L6 28V12L20 4Z" fill="#3C873A"/>
@@ -156,7 +156,7 @@ export default function Hero() {
               <span className={styles.bubbleName}>Node.js</span>
               <span className={styles.bubbleSub}>Express API</span>
             </div>
-            <div className={`${styles.bubbleTail} ${styles.tailTop}`} />
+            <div className={`${styles.bubbleTail} ${styles.tailRight}`} />
           </div>
 
           {/* AWS — top left */}

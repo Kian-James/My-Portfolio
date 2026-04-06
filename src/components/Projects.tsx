@@ -5,8 +5,8 @@ import { useInView } from '@/hooks/useInView';
 import ProjectModal from './ProjectModal';
 import styles from './Projects.module.css';
 
-type Category = 'All' | 'Web' | 'Mobile' | 'API';
-const CATEGORIES: Category[] = ['All', 'Web', 'Mobile', 'API'];
+type Category = 'All' | 'Web' | 'Mobile';
+const CATEGORIES: Category[] = ['All', 'Web', 'Mobile'];
 
 function ProjectCard({
   project,

@@ -296,7 +296,7 @@
   50%       { transform: translateY(-50%) translateX(-6px); }
 }
 /* non-centered bubbles don't use translateX */
-.bubbleTopLeft, .bubbleTopRight, .bubbleBottomRight { --tx: 0px; }
+.bubbleTopLeft, .bubbleTopRight, .bubbleBottomLeft { --tx: 0px; }
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
