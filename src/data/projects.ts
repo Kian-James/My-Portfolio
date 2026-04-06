@@ -8,11 +8,11 @@ export const PROJECTS: Project[] = [
     type: 'MERN',
     category: 'Web',
     summary:
-      "Full-stack business management platform built to streamline Evalanne Marketing's daily operations — including sales tracking, expense management, employee management, and performance monitoring — through distinct Admin and Employee dashboards.",
+      "Full-stack business management platform built to streamline Evalanne Marketing's daily operations, covering sales tracking, expense management, employee management, and performance monitoring, through distinct Admin and Employee dashboards.",
     highlights: [
       'Built dual-dashboard system: Employee dashboard for creating and tracking customer transactions (pending and completed), Admin dashboard for full business oversight',
       'Admin business overview with charts and statistics visualizing overall performance, revenue trends, and operational metrics',
-      'Complete product, expense, and employee management with full CRUD — add, update, and view all records from a centralized interface',
+      'Complete product, expense, and employee management with full CRUD, covering add, update, and view across all record types from a centralized interface',
       'Admin management panel to monitor all system administrators and track their activity within the platform',
       'Full transaction history ledger giving admins a complete, searchable record of every recorded sale and order',
       'JWT authentication with bcrypt password hashing for secure login, and role-based access control restricting admin features from employee accounts',
@@ -59,14 +59,14 @@ export const PROJECTS: Project[] = [
     type: 'Flutter',
     category: 'Mobile',
     summary:
-      'Full-featured Flutter accommodation booking app connecting guests with property hosts. Supports three distinct user roles — Guest, Host, and Admin — powered by Firebase and Cloudinary with AI-driven listing insights and demand forecasting.',
+      'Full-featured Flutter accommodation booking app connecting guests with property hosts. Supports three distinct user roles, Guest, Host, and Admin, powered by Firebase and Cloudinary with AI-driven listing insights and demand forecasting.',
     highlights: [
       'Built three fully separate role-based experiences: Guest (browse, book, review), Host (manage listings, approve bookings), and Admin (verify hosts, moderate reports)',
       'Implemented NLP-powered review analysis service that performs keyword sentiment analysis on guest reviews and delivers actionable suggestions to hosts',
       'Built Agent-Based Market (ABM) simulation modeling price sensitivity, seasonal demand indexes, and stochastic stay-length sampling for host occupancy forecasting',
       'Integrated multi-image upload via Cloudinary with separate presets for listings, profiles, and host ID verification documents',
       'Developed interactive calendar UI for booking, real-time in-app messaging between guests and hosts, and saved favourites system',
-      'Applied MVVM architecture with GetX state management — ViewModels cleanly separated from all screen logic',
+      'Applied MVVM architecture with GetX state management, with ViewModels cleanly separated from all screen logic',
       'Enabled role-based navigation on login routing users to GuestHomeScreen, HostHomeScreen, or AdminHomeScreen via Firestore role flags',
     ],
     stack: ['Flutter', 'Dart', 'Firebase Auth', 'Firestore', 'Cloudinary', 'GetX', 'fl_chart', 'Google Fonts'],
@@ -103,11 +103,11 @@ export const PROJECTS: Project[] = [
     type: 'AWS + Flutter',
     category: 'Mobile',
     summary:
-      'Location-based Pokémon GO-inspired mobile app built on real AWS cloud infrastructure. Players register, explore via GPS, detect nearby monsters, and compete on a live leaderboard — all powered by a secure multi-region AWS backend.',
+      'Location-based Pokémon GO-inspired mobile app built on real AWS cloud infrastructure. Players register, explore via GPS, detect nearby monsters, and compete on a live leaderboard, all powered by a secure multi-region AWS backend.',
     highlights: [
-      'Deployed PHP REST API on Amazon EC2 (eu-west-3 Paris) behind Tailscale VPN — zero public database exposure',
+      'Deployed PHP REST API on Amazon EC2 (eu-west-3 Paris) behind Tailscale VPN, with zero public database exposure',
       'Built cross-region VPC Peering between Paris web server and N. Virginia MariaDB over AWS private network',
-      'Implemented IAM Role-based EC2 automation — admins start/stop instances directly from the mobile app',
+      'Implemented IAM Role-based EC2 automation, letting admins start and stop instances directly from the mobile app',
       'GPS monster detection with Pokémon-style alerts: red screen flash, haptic vibration, torch activation, and alarm sound',
       'Interactive OpenStreetMap showing all monster spawn radius zones with real-time player GPS location',
       'JWT-authenticated REST API with 18 endpoints: players, monsters, catches, leaderboard, and EC2 control',
@@ -137,7 +137,7 @@ export const PROJECTS: Project[] = [
       'Web-based management platform for a water refilling station business with separate Employee and Admin dashboards, covering transactions, inventory, expenses, and business performance analytics.',
     highlights: [
       'Built dual-dashboard system: Employee dashboard for creating and tracking customer transactions, Admin dashboard for full business oversight',
-      'Implemented complete transaction lifecycle — create, pending, and completed states — with full history accessible to admins',
+      'Implemented complete transaction lifecycle covering create, pending, and completed states, with full history accessible to admins',
       'Admin business overview with graphical reports and key metrics for monitoring revenue and operational performance',
       'Product, expense, and employee management with CRUD operations across all entity types',
       'Role-based access control using JWT authentication, restricting sensitive admin features from employee accounts',
