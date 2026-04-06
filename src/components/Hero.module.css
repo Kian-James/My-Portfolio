@@ -263,11 +263,11 @@
 }
 
 /* Firebase — 4 o'clock */
-.bubbleRight {
-  bottom: 140px;
-  right: 20px;
-  transform: none;
-  animation: floatY 3.0s ease-in-out infinite 0.6s;
+.bubblebottomRight {
+  top: 280px;
+  left: 280px;
+  transform: translate(120px, 120px); /* diagonal offset */
+  animation: floatY 3s ease-in-out infinite;
 }
 
 /* MongoDB — 6 o'clock */
@@ -294,7 +294,7 @@
   0%, 100% { transform: translateY(-50%) translateX(0px); }
   50%       { transform: translateY(-50%) translateX(-6px); }
 }
-.bubbleTopLeft, .bubbleTopRight, .bubbleBottomLeft { --tx: 0px; }
+.bubbleTopLeft, .bubbleTopRight, .bubbleBottomLeft, .bubblebottomRight { --tx: 0px; }
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
