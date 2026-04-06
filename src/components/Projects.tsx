@@ -17,7 +17,9 @@ function ProjectCard({
   onClick: () => void;
   index: number;
 }) {
-  const previewImgs = project.images?.slice(0, 3) ?? [];
+  // Mobile projects are portrait screenshots — show more in the scrollable strip
+  const previewCount = project.category === 'Mobile' ? 8 : 3;
+  const previewImgs = project.images?.slice(0, previewCount) ?? [];
 
   return (
     <article

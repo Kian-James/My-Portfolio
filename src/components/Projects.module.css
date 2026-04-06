@@ -94,11 +94,19 @@
   height: 160px;
   display: flex;
   gap: 5px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   background: #E8E8ED;
   padding: 8px 8px 0;
   flex-shrink: 0;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
 }
+
+.cardImages::-webkit-scrollbar { display: none; }
+
+.cardImages:active { cursor: grabbing; }
 
 .cardImages img {
   height: 100%;
