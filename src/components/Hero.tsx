@@ -111,7 +111,7 @@ export default function Hero() {
           </div>
 
           {/* Firebase — right */}
-          <div className={`${styles.bubble} ${styles.bubbleRight}`}>
+          <div className={`${styles.bubble} ${styles.bubblebottomRight}`}>
             <span className={styles.bubbleIcon} style={{background:'#1B1B1B'}}>
               <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
                 <path d="M8 30L14 8L22 20L8 30Z" fill="#FFA000"/>
