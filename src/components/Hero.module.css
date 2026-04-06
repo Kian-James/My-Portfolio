@@ -134,7 +134,6 @@
    RIGHT — Avatar scene
    Container: 560×560px
    Circle: 300px, truly centered at (280, 280)
-   Bubbles spread around the circle evenly
    ══════════════════════════════════ */
 
 .avatarWrap {
@@ -208,12 +207,12 @@
 /* Tails */
 .bubbleTail { position: absolute; width: 0; height: 0; }
 .tailBottom {
-  bottom: -10px; left: 20px;
+  bottom: -10px; left: 50%; transform: translateX(-50%);
   border-left: 9px solid transparent; border-right: 9px solid transparent;
   border-top: 10px solid white;
 }
 .tailTop {
-  top: -10px; left: 20px;
+  top: -10px; left: 50%; transform: translateX(-50%);
   border-left: 9px solid transparent; border-right: 9px solid transparent;
   border-bottom: 10px solid white;
 }
@@ -230,14 +229,13 @@
 
 /*
   Circle center = (280, 280) in the 560×560 box.
-  All bubbles positioned relative to that center.
 
   React      → 12 o'clock  top center
-  Flutter    → 2 o'clock   top right
-  Firebase   → 3 o'clock   mid right
+  Flutter    → 2 o'clock   top right    — tail points LEFT  (toward circle)
+  Firebase   → 4 o'clock   bottom right — tail points LEFT  (toward circle)
   MongoDB    → 6 o'clock   bottom center
-  Node.js    → 8 o'clock   bottom left
-  AWS        → 10 o'clock  top left
+  Node.js    → 8 o'clock   bottom left  — tail points RIGHT (toward circle)
+  AWS        → 10 o'clock  top left     — tail points RIGHT (toward circle)
 */
 
 /* React — 12 o'clock */
@@ -251,21 +249,21 @@
 /* AWS — 10 o'clock */
 .bubbleTopLeft {
   top: 80px;
-  left: 20px;
+  left: 0px;
   animation: floatY 3.1s ease-in-out infinite 0.8s;
 }
 
 /* Flutter — 2 o'clock */
 .bubbleTopRight {
   top: 80px;
-  right: 20px;
+  right: 0px;
   animation: floatY 3.4s ease-in-out infinite 0.3s;
 }
 
 /* Firebase — 4 o'clock */
 .bubbleBottomRight {
   top: 340px;
-  right: 20px;
+  right: 0px;
   animation: floatY 2.9s ease-in-out infinite 0.6s;
 }
 
@@ -280,20 +278,16 @@
 /* Node.js — 8 o'clock */
 .bubbleBottomLeft {
   bottom: 80px;
-  left: 20px;
+  left: 0px;
   animation: floatY 3.7s ease-in-out infinite 0.4s;
 }
 
 /* Float animations */
 @keyframes floatY {
-  0%, 100% { transform: translateX(var(--tx, -50%)) translateY(0px); }
-  50%       { transform: translateX(var(--tx, -50%)) translateY(-9px); }
+  0%, 100% { transform: translateX(var(--tx, 0px)) translateY(0px); }
+  50%       { transform: translateX(var(--tx, 0px)) translateY(-9px); }
 }
-@keyframes floatX {
-  0%, 100% { transform: translateY(-50%) translateX(0px); }
-  50%       { transform: translateY(-50%) translateX(-6px); }
-}
-.bubbleTopLeft, .bubbleTopRight, .bubbleBottomLeft, .bubbleBottomRight { --tx: 0px; }
+.bubbleTop, .bubbleBottom { --tx: -50%; }
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {

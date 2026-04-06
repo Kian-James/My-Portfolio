@@ -107,10 +107,11 @@ export default function Hero() {
               <span className={styles.bubbleName}>Flutter</span>
               <span className={styles.bubbleSub}>Mobile Apps</span>
             </div>
+            {/* tail points LEFT toward the circle */}
             <div className={`${styles.bubbleTail} ${styles.tailLeft}`} />
           </div>
 
-          {/* Firebase — right */}
+          {/* Firebase — bottom right (4 o'clock) */}
           <div className={`${styles.bubble} ${styles.bubbleBottomRight}`}>
             <span className={styles.bubbleIcon} style={{background:'#1B1B1B'}}>
               <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
@@ -124,10 +125,11 @@ export default function Hero() {
               <span className={styles.bubbleName}>Firebase</span>
               <span className={styles.bubbleSub}>Backend & DB</span>
             </div>
+            {/* tail points LEFT toward the circle */}
             <div className={`${styles.bubbleTail} ${styles.tailLeft}`} />
           </div>
 
-          {/* MongoDB — bottom center (opposite React) */}
+          {/* MongoDB — bottom center (6 o'clock) */}
           <div className={`${styles.bubble} ${styles.bubbleBottom}`}>
             <span className={styles.bubbleIcon} style={{background:'#001E2B'}}>
               <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
@@ -142,7 +144,7 @@ export default function Hero() {
             <div className={`${styles.bubbleTail} ${styles.tailTop}`} />
           </div>
 
-          {/* Node.js — bottom left (opposite Flutter) */}
+          {/* Node.js — bottom left (8 o'clock) */}
           <div className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>
             <span className={styles.bubbleIcon} style={{background:'#1A1A1A'}}>
               <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
@@ -156,10 +158,11 @@ export default function Hero() {
               <span className={styles.bubbleName}>Node.js</span>
               <span className={styles.bubbleSub}>Express API</span>
             </div>
+            {/* tail points RIGHT toward the circle */}
             <div className={`${styles.bubbleTail} ${styles.tailRight}`} />
           </div>
 
-          {/* AWS — top left */}
+          {/* AWS — top left (10 o'clock) */}
           <div className={`${styles.bubble} ${styles.bubbleTopLeft}`}>
             <span className={styles.bubbleIcon} style={{background:'#232F3E'}}>
               <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
@@ -171,6 +174,7 @@ export default function Hero() {
               <span className={styles.bubbleName}>AWS</span>
               <span className={styles.bubbleSub}>Cloud Infra</span>
             </div>
+            {/* tail points RIGHT toward the circle */}
             <div className={`${styles.bubbleTail} ${styles.tailRight}`} />
           </div>
 
