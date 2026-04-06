@@ -132,10 +132,9 @@
 
 /* ══════════════════════════════════
    RIGHT — Avatar scene
-   The outer container is 560×560.
-   The circle (300px) is centered inside it.
-   Bubbles are placed relative to the 560×560 box.
-   Circle center = (280, 280).
+   Container: 560×560px
+   Circle: 300px, truly centered at (280, 280)
+   Bubbles spread around the circle evenly
    ══════════════════════════════════ */
 
 .avatarWrap {
@@ -146,26 +145,26 @@
   animation: fadeUp 0.6s 0.2s ease both;
 }
 
-/* Spinning dashed orbit ring — centered in the 560 box */
+/* Orbit ring — centered with circle */
 .orbitRing {
   position: absolute;
   top: 50%; left: 50%;
   width: 336px; height: 336px;
-  margin-top: -228px; margin-left: -168px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 2px dashed rgba(0,122,255,0.2);
   animation: spinRing 28s linear infinite;
   pointer-events: none;
   z-index: 1;
 }
-@keyframes spinRing { to { transform: rotate(360deg); } }
+@keyframes spinRing { to { transform: translate(-50%, -50%) rotate(360deg); } }
 
-/* Circle — centered in the 560 box */
+/* Circle — truly centered */
 .avatarCircle {
   position: absolute;
   top: 50%; left: 50%;
   width: 300px; height: 300px;
-  margin-top: -210px; margin-left: -150px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 5px solid #1C1C1E;
   overflow: hidden;
@@ -230,59 +229,59 @@
 }
 
 /*
-  Bubble placement — all coords are within the 560×560 container.
-  Circle center is at (280, 280). Radius = 150px.
+  Circle center = (280, 280) in the 560×560 box.
+  All bubbles positioned relative to that center.
 
-  React    — top center       → 12 o'clock
-  Flutter  — top right        → 2 o'clock
-  Firebase — middle right     → 3 o'clock
-  MongoDB  — bottom right     → 5 o'clock
-  Node.js  — bottom center    → 6 o'clock
-  AWS      — top left         → 10 o'clock
+  React      → 12 o'clock  top center
+  Flutter    → 2 o'clock   top right
+  Firebase   → 3 o'clock   mid right
+  MongoDB    → 6 o'clock   bottom center
+  Node.js    → 8 o'clock   bottom left
+  AWS        → 10 o'clock  top left
 */
 
-/* React — 12 o'clock: center-top, bubble centered above circle */
+/* React — 12 o'clock */
 .bubbleTop {
+  top: 20px;
   left: 50%;
-  top: 0px;
   transform: translateX(-50%);
   animation: floatY 3.0s ease-in-out infinite;
 }
 
-/* AWS — 10 o'clock: upper-left */
+/* AWS — 10 o'clock */
 .bubbleTopLeft {
-  left: 16px;
   top: 80px;
+  left: 20px;
   animation: floatY 3.1s ease-in-out infinite 0.8s;
 }
 
-/* Flutter — 2 o'clock: upper-right */
+/* Flutter — 2 o'clock */
 .bubbleTopRight {
-  right: 16px;
   top: 80px;
+  right: 20px;
   animation: floatY 3.4s ease-in-out infinite 0.3s;
 }
 
-/* Firebase — 3 o'clock: middle-right */
+/* Firebase — 3 o'clock */
 .bubbleRight {
-  right: 16px;
   top: 50%;
+  right: 20px;
   transform: translateY(-50%);
   animation: floatX 2.9s ease-in-out infinite 0.6s;
 }
 
-/* MongoDB — bottom center (opposite React at top) */
+/* MongoDB — 6 o'clock */
 .bubbleBottom {
-  left: 50%;
   bottom: 20px;
+  left: 50%;
   transform: translateX(-50%);
   animation: floatY 3.3s ease-in-out infinite 0.8s;
 }
 
-/* Node.js — bottom left (opposite Flutter at top right) */
+/* Node.js — 8 o'clock */
 .bubbleBottomLeft {
-  left: 16px;
   bottom: 80px;
+  left: 20px;
   animation: floatY 3.7s ease-in-out infinite 0.4s;
 }
 
@@ -295,7 +294,6 @@
   0%, 100% { transform: translateY(-50%) translateX(0px); }
   50%       { transform: translateY(-50%) translateX(-6px); }
 }
-/* non-centered bubbles: no translateX */
 .bubbleTopLeft, .bubbleTopRight, .bubbleBottomLeft { --tx: 0px; }
 
 /* ── Responsive ── */
