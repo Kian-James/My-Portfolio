@@ -4,7 +4,7 @@ export const PROJECTS: Project[] = [
   {
     id: 5,
     title: 'Rentora — Landlord Rent Tracker',
-    period: '2026',
+    period: 'Sep 2026 – Oct 2026',
     type: 'React + Supabase',
     category: 'Web',
     summary:
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
   {
     id: 6,
     title: 'BatoPH — Philippine CKD Risk Screener',
-    period: '2026',
+    period: 'Jun 2026',
     type: 'ML + Streamlit',
     category: 'Web',
     summary:
@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
   {
     id: 7,
     title: 'GaanPH — Child Nutrition Screening',
-    period: '2026',
+    period: 'Jun 2026',
     type: 'ML + Streamlit',
     category: 'Web',
     summary:
@@ -210,7 +210,7 @@ export const PROJECTS: Project[] = [
   {
     id: 4,
     title: 'Crystal Dew Management System',
-    period: 'Sep 2025 – Nov 2025',
+    period: 'Feb 2025 – Mar 2025',
     type: 'MERN',
     category: 'Web',
     summary:
